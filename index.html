@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
+    <style>
+        #flipbook {
+            width: 900px;
+            height: 600px;
+        }
+
+        #flipbook .page {
+            width: 900px;
+            height: 600px;
+            background-color: lightgray;
+            line-height: 600px;
+            text-align: center;
+            font-size: 24px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="flipbook">
+        <div style="background-image:url(pages/01.jpg);"></div>
+        <div style="background-image:url(pages/02.jpg);"></div>
+        <div style="background-image:url(pages/03.jpg);"></div>
+        <div style="background-image:url(pages/04.jpg);"></div>
+        <div style="background-image:url(pages/05.jpg);"></div>
+        <div style="background-image:url(pages/06.jpg);"></div>
+    </div>
+
+    <button id="previous">Previous</button>
+    <button id="next">Next</button>
+    <button id="page5">Page 5</button>
+
+    <script>
+        $(document).ready(function () {
+            $('#flipbook').turn({
+                autoCenter: true
+            });
+
+            $('#previous').click(function() {
+                $('#flipbook').turn('previous')
+            });
+
+            $('#next').click(function() {
+                $('#flipbook').turn('next')
+            });
+
+            $('#page5').click(function() {
+                $('#flipbook').turn('page', 5);
+            });
+        });
+
+        $(window).bind('keydown', function(e){
+            if (e.keyCode==37)
+                $('#flipbook').turn('previous');
+            else if (e.keyCode==39)
+                $('#flipbook').turn('next');
+        });
+    </script>
+</body>
+</html>
