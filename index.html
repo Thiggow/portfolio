@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Portfólio</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
+    <script src="turn.js"></script>
     <style>
+        body {
+            background-color: #123854;
+        }
+
         #flipbook {
             width: 900px;
             height: 600px;
@@ -15,7 +19,7 @@
         #flipbook .page {
             width: 900px;
             height: 600px;
-            background-color: lightgray;
+            background-color: white;
             line-height: 600px;
             text-align: center;
             font-size: 24px;
@@ -25,22 +29,29 @@
 </head>
 <body>
     <div id="flipbook">
-        <div style="background-image:url(pages/01.jpg);"></div>
-        <div style="background-image:url(pages/02.jpg);"></div>
-        <div style="background-image:url(pages/03.jpg);"></div>
-        <div style="background-image:url(pages/04.jpg);"></div>
-        <div style="background-image:url(pages/05.jpg);"></div>
-        <div style="background-image:url(pages/06.jpg);"></div>
+        <div class="page">
+            <h2>Dicas</h2>
+        </div>
+
+        <div class="page">Page 2</div>
+
+        <div class="page">Page 3</div>
+
+        <div class="page">Page 4</div>
+
+        <div class="page">Page 5</div>
+
+        <div class="page">Page 6</div>
     </div>
 
     <button id="previous">Previous</button>
     <button id="next">Next</button>
     <button id="page5">Page 5</button>
 
-    <script type="text/javascript">
+    <script>
         $(document).ready(function () {
             $('#flipbook').turn({
-                autoCenter: true
+                autoCenter: true,
             });
 
             $('#previous').click(function() {
